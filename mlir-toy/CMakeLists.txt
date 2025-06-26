@@ -17,6 +17,9 @@ add_compile_options(-g)
 find_package(MLIR REQUIRED CONFIG)
 list(APPEND CMAKE_MODULE_PATH ${MLIR_CMAKE_DIR})
 list(APPEND CMAKE_MODULE_PATH ${LLVM_CMAKE_DIR})
+get_property(dialect_libs GLOBAL PROPERTY MLIR_DIALECT_LIBS)
+get_property(conversion_libs GLOBAL PROPERTY MLIR_CONVERSION_LIBS)
+get_property(extension_libs GLOBAL PROPERTY MLIR_EXTENSION_LIBS)
 
 include(TableGen)
 include(AddLLVM)
@@ -37,3 +40,4 @@ target_link_libraries(ex1-io PRIVATE
 )
 
 add_subdirectory(dialect)
+add_subdirectory(north_star_dialect)
