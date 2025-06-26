@@ -2,3 +2,4 @@ install/
 llvm-project/
 mlir-toy/build/
 .vscode/
+mlir-toy/.cache/
