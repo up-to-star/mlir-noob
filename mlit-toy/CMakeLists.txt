@@ -1,0 +1,39 @@
+cmake_minimum_required(VERSION 3.20)
+project(mlir-toy VERSION 0.0.0)
+
+cmake_policy(SET CMP0116 NEW)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CMAKE_INSTALL_PREFIX "/home/cyj/workspace/mlir-noob/install")
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(ENV{PATH} "/home/cyj/workspace/mlir-noob/install/bin:\$ENV{PATH}")
+
+add_compile_options(-g)
+
+find_package(MLIR REQUIRED CONFIG)
+list(APPEND CMAKE_MODULE_PATH ${MLIR_CMAKE_DIR})
+list(APPEND CMAKE_MODULE_PATH ${LLVM_CMAKE_DIR})
+
+include(TableGen)
+include(AddLLVM)
+include(AddMLIR)
+include(HandleLLVMOptions)
+
+include_directories(${LLVM_INCLUDE_DIRS} ${MLIR_INCLUDE_DIRS})
+
+add_executable(mlir-toy main.cpp)
+
+add_executable(ex1-io ex1-io/ex1-io.cpp)
+
+target_link_libraries(ex1-io PRIVATE 
+    MLIRIR 
+    MLIRParser 
+    MLIRFuncDialect
+    MLIRArithDialect
+)
+
+add_subdirectory(dialect)

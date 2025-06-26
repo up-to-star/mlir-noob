@@ -1,0 +1,174 @@
+Performing C SOURCE FILE Test C_SUPPORTS_FPIC failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_1df28 && [1/2] Building C object CMakeFiles/cmTC_1df28.dir/src.c.o
+FAILED: CMakeFiles/cmTC_1df28.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_FPIC  -Werror -fPIC -o CMakeFiles/cmTC_1df28.dir/src.c.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.c
+cc: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FPIC failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_1633c && [1/2] Building CXX object CMakeFiles/cmTC_1633c.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_1633c.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_FPIC  -Werror -fPIC -std=gnu++17 -o CMakeFiles/cmTC_1633c.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_84356 && [1/2] Building C object CMakeFiles/cmTC_84356.dir/src.c.o
+FAILED: CMakeFiles/cmTC_84356.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -Werror -fno-semantic-interposition -o CMakeFiles/cmTC_84356.dir/src.c.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.c
+cc: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_6a404 && [1/2] Building CXX object CMakeFiles/cmTC_6a404.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_6a404.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -Werror -fno-semantic-interposition -std=gnu++17 -o CMakeFiles/cmTC_6a404.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test SUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_75159 && [1/2] Building CXX object CMakeFiles/cmTC_75159.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_75159.dir/src.cxx.o 
+/usr/bin/c++ -DSUPPORTS_FVISIBILITY_INLINES_HIDDEN_FLAG  -fvisibility-inlines-hidden -std=gnu++17 -o CMakeFiles/cmTC_75159.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_00bf9 && [1/2] Building CXX object CMakeFiles/cmTC_00bf9.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_00bf9.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_SUGGEST_OVERRIDE_FLAG  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor    -Wsuggest-override -std=gnu++17 -o CMakeFiles/cmTC_00bf9.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C SOURCE FILE Test C_WCOMMENT_ALLOWS_LINE_WRAP failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_f3480 && [1/2] Building C object CMakeFiles/cmTC_f3480.dir/src.c.o
+FAILED: CMakeFiles/cmTC_f3480.dir/src.c.o 
+/usr/bin/cc -DC_WCOMMENT_ALLOWS_LINE_WRAP  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough  -Werror -Wcomment -o CMakeFiles/cmTC_f3480.dir/src.c.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.c
+/home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.c:1:1: error: multi-line comment [-Werror=comment]
+    1 | // \
+      | ^
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+// \
+//
+int main(void) {return 0;}
+Performing C SOURCE FILE Test C_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_5225b && [1/2] Building C object CMakeFiles/cmTC_5225b.dir/src.c.o
+FAILED: CMakeFiles/cmTC_5225b.dir/src.c.o 
+/usr/bin/cc -DC_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment    -Werror -Wctad-maybe-unsupported -o CMakeFiles/cmTC_5225b.dir/src.c.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: command-line option '-Wctad-maybe-unsupported' is valid for C++/ObjC++ but not for C [-Werror]
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_d15f4 && [1/2] Building CXX object CMakeFiles/cmTC_d15f4.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_d15f4.dir/src.cxx.o 
+/usr/bin/c++ -DCXX_SUPPORTS_CTAD_MAYBE_UNSPPORTED_FLAG  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wno-comment -Wno-misleading-indentation    -Werror -Wctad-maybe-unsupported -std=gnu++17 -o CMakeFiles/cmTC_d15f4.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test LINKER_SUPPORTS_COLOR_DIAGNOSTICS failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_37526 && [1/2] Building CXX object CMakeFiles/cmTC_37526.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_37526.dir/src.cxx.o 
+/usr/bin/c++ -DLINKER_SUPPORTS_COLOR_DIAGNOSTICS  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wno-comment -Wno-misleading-indentation -fdiagnostics-color  -std=gnu++17 -o CMakeFiles/cmTC_37526.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+Determining if the os_signpost_interval_begin exist failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_3ed53 && [1/2] Building C object CMakeFiles/cmTC_3ed53.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_3ed53.dir/CheckSymbolExists.c.o 
+/usr/bin/cc   -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-comment -fdiagnostics-color -ffunction-sections -fdata-sections -o CMakeFiles/cmTC_3ed53.dir/CheckSymbolExists.c.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: os/signpost.h: No such file or directory
+    2 | #include <os/signpost.h>
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+File /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <os/signpost.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef os_signpost_interval_begin
+  return ((int*)(&os_signpost_interval_begin))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C++ SOURCE FILE Test LLVM_LINKER_SUPPORTS_B_SYMBOLIC_FUNCTIONS failed with the following output:
+Change Dir: /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/ninja cmTC_a0015 && [1/2] Building CXX object CMakeFiles/cmTC_a0015.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_a0015.dir/src.cxx.o 
+/usr/bin/c++ -DLLVM_LINKER_SUPPORTS_B_SYMBOLIC_FUNCTIONS  -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-nonnull -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wno-comment -Wno-misleading-indentation -fdiagnostics-color -ffunction-sections -fdata-sections  -std=gnu++17 -o CMakeFiles/cmTC_a0015.dir/src.cxx.o -c /home/cyj/workspace/mlir-noob/mlit-toy/build/CMakeFiles/CMakeTmp/src.cxx
+c++: fatal error: cannot execute 'as': execvp: No such file or directory
+compilation terminated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
