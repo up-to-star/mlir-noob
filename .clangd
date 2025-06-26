@@ -1,3 +1,6 @@
-Format:
-  Style: google
+CompileFlags:
+  Add:
+    - -I/home/cyj/workspace/mlir-noob/mlir-toy/north_star_dialect/include
+    - -I/home/cyj/workspace/mlir-noob/mlir-toy/build/include
+    - -I/home/cyj/workspace/mlir-noob/install/include
   
