@@ -20,7 +20,7 @@ def SubOp : ToyOp<"sub", [Pure]> {
 }
 
 def ConstantOp : ToyOp<"const", [Pure]> {
-  let summary = "const operation";
+  let summary = "const operation"; 
   let arguments = (ins APIntAttr:$value);
   let results = (outs AnyInteger:$result);
 }
