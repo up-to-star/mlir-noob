@@ -40,7 +40,7 @@ target_link_libraries(ex1-io PRIVATE
     MLIRArithDialect
 )
 
-# add_subdirectory(dialect)
-# add_subdirectory(north_star_dialect)
-# add_subdirectory(north_star_type)
+add_subdirectory(dialect)
+add_subdirectory(north_star_dialect)
+add_subdirectory(north_star_type)
 add_subdirectory(north_star_attribute)
