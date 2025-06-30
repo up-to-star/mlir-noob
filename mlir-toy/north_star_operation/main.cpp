@@ -214,8 +214,10 @@ void myOperation() {
     builder.setInsertionPointToEnd(module.getBody());
     auto f32 = mlir::Float32Type::get(&context);
     auto shape = mlir::SmallVector<int64_t>{2, 2};
-    auto const_value1 = mlir::SmallVector<llvm::APFloat>(4, llvm::APFloat((float)1));
-    auto const_value2 = mlir::SmallVector<llvm::APFloat>(4, llvm::APFloat((float)2));
+    auto const_value1 =
+        mlir::SmallVector<llvm::APFloat>(4, llvm::APFloat((float)1));
+    auto const_value2 =
+        mlir::SmallVector<llvm::APFloat>(4, llvm::APFloat((float)2));
     auto tensor_type1 =
         mlir::north_star::NSTensorType::get(&context, shape, f32, 0);
     auto tensor_type2 =
@@ -242,19 +244,23 @@ void myOperation() {
     const3->dump();
 
     // buffer of
-    auto buffer_op = builder.create<mlir::north_star::BufferOp>(loc, mlir::ValueRange({const1, const3}));
+    auto buffer_op = builder.create<mlir::north_star::BufferOp>(
+        loc, mlir::ValueRange({const1, const3}));
     llvm::outs() << "Buffer Op: \n";
     buffer_op->dump();
 
     // Get tensor op
-    auto get_tensor_op1 = builder.create<mlir::north_star::GetTensorOp>(loc, tensor_type1, buffer_op, 0);
-    auto get_tensor_op2 = builder.create<mlir::north_star::GetTensorOp>(loc, tensor_type2, buffer_op, 1);
+    auto get_tensor_op1 = builder.create<mlir::north_star::GetTensorOp>(
+        loc, tensor_type1, buffer_op, 0);
+    auto get_tensor_op2 = builder.create<mlir::north_star::GetTensorOp>(
+        loc, tensor_type2, buffer_op, 1);
     llvm::outs() << "Get tensor op: \n";
     get_tensor_op1->dump();
     get_tensor_op2->dump();
 
     // softmax op
-    auto softmax_op = builder.create<mlir::north_star::SoftmaxOp>(loc, get_tensor_op1, 1);
+    auto softmax_op =
+        builder.create<mlir::north_star::SoftmaxOp>(loc, get_tensor_op1, 1);
     llvm::outs() << "Softmax op: \n";
     softmax_op->dump();
 
@@ -262,7 +268,16 @@ void myOperation() {
     auto exp_op = builder.create<mlir::north_star::ExpOp>(loc, get_tensor_op2);
     llvm::outs() << "Exp op: \n";
     exp_op->dump();
+
+    // all to all op
+    auto out_buffer_op = builder.create<mlir::north_star::BufferOp>(
+        loc, mlir::ValueRange({const2, const4}));
+    auto all_to_all_op = builder.create<mlir::north_star::AllToAllOp>(
+        loc, buffer_op, out_buffer_op);
+    llvm::outs() << "All to All Op :\n";
+    all_to_all_op->dump();
 }
 int main() {
     myOperation();
- }
+    return 0;
+}
