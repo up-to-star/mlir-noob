@@ -25,7 +25,7 @@ def NorthStar_BufferType : NorthStar_Type<"Buffer", "buffer", []> {
 }
 
 
-def NorthStar_TensorType : NorthStar_Type<"NSTensor","ns_tensor",[]>{
+def NorthStar_TensorType : NorthStar_Type<"NSTensor","ns_tensor",[ShapedTypeInterface], "::mlir::TensorType">{
   // 概述
   let summary = " the summary of north-star tensor type";
 
@@ -63,18 +63,11 @@ def NorthStar_TensorType : NorthStar_Type<"NSTensor","ns_tensor",[]>{
   // 是否生成类型检验的函数声明
   let genVerifyDecl = 1;
 
-//   let extraClassDeclaration = [{
-//     // using TensorType::clone;
-//     // using ShapedType::Trait<NSTensorType>::getElementTypeBitWidth;
-//     // using ShapedType::Trait<NSTensorType>::getRank;
-//     // using ShapedType::Trait<NSTensorType>::getNumElements;
-//     // using ShapedType::Trait<NSTensorType>::isDynamicDim;
-//     // using ShapedType::Trait<NSTensorType>::hasStaticShape;
-//     // using ShapedType::Trait<NSTensorType>::getNumDynamicDims;
-//     // using ShapedType::Trait<NSTensorType>::getDimSize;
-//     // using ShapedType::Trait<NSTensorType>::getDynamicDimIndex;
-//     // NSTensorType clone(::mlir::Type elementType) {
-//     //   return ::llvm::cast<NSTensorType>(cloneWith(getShape(), elementType));
-//     // }
-//   }];
+  let extraClassDeclaration = [{
+    ::mlir::ShapedType cloneWith(::std::optional<::llvm::ArrayRef<int64_t>> shape, ::mlir::Type elementType) {
+        if (shape)
+          return mlir::north_star::NSTensorType::get(getContext(), *shape, elementType);
+        return mlir::north_star::NSTensorType::get(getContext(), getShape(), elementType);
+      }
+  }];
 }
