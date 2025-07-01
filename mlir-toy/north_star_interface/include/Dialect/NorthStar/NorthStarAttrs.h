@@ -1,3 +1,4 @@
+#pragma once
 #include "Dialect/NorthStar/NorthStarEnums.h"
 #include "Interfaces/DistributeParallelismInterfaces.h"
 #include "mlir/Dialect/Tensor/IR/Tensor.h"

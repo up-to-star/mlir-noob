@@ -12,6 +12,7 @@
 #include "mlir/IR/Builders.h"
 #include "mlir/IR/BuiltinAttributeInterfaces.h"
 #include "mlir/IR/BuiltinAttributes.h"
+#include "mlir/IR/BuiltinOps.h"
 #include "mlir/IR/BuiltinTypeInterfaces.h"
 #include "mlir/IR/BuiltinTypes.h"
 #include "mlir/IR/DialectRegistry.h"
@@ -280,11 +281,37 @@ void myOperation() {
     all_to_all_op->dump();
 }
 
+mlir::ModuleOp getModule(mlir::OpBuilder &builder) {
+    auto loc = builder.getUnknownLoc();
+    auto context = builder.getContext();
+    auto module = builder.create<mlir::ModuleOp>(loc, "NorthStar");
+    builder.setInsertionPointToEnd(module.getBody());
+
+    auto f32 = mlir::Float32Type::get(context);
+    auto dy_dim = 128;
+    auto dy_shape = mlir::SmallVector<int64_t>{dy_dim, dy_dim, 24};
+    auto dy_tensor_type =
+        mlir::north_star::NSTensorType::get(context, dy_shape, f32, 0);
+    auto func_type =
+        mlir::FunctionType::get(context, {dy_tensor_type}, {dy_tensor_type});
+    auto func = builder.create<mlir::func::FuncOp>(loc, "main", func_type);
+    func->setAttr("dp_attr",
+                  mlir::north_star::DataParallelismAttr::get(context, 2));
+    auto block = func.addEntryBlock();
+    builder.setInsertionPointToStart(block);
+    mlir::Value softmax_op = builder.create<mlir::north_star::SoftmaxOp>(
+        loc, block->getArgument(0), 1);
+    softmax_op =
+        builder.create<mlir::north_star::SoftmaxOp>(loc, softmax_op, 1);
+    builder.create<mlir::func::ReturnOp>(loc, mlir::ValueRange(softmax_op));
+    return module;
+}
+
 void myInterface() {
     mlir::DialectRegistry registry;
     mlir::MLIRContext context(registry);
     context.getOrLoadDialect<mlir::north_star::NorthStarDialect>();
-    // context.getOrLoadDialect<mlir::func::FuncDialect>();
+    context.getOrLoadDialect<mlir::func::FuncDialect>();
 
     auto f32 = mlir::Float32Type::get(&context);
     auto dim = mlir::ShapedType::kDynamic;
@@ -302,12 +329,23 @@ void myInterface() {
     cloned_type.dump();
 
     auto dp_attr = mlir::north_star::DataParallelismAttr::get(&context, 2);
+    // dp_attr.attachInterface<mlir::DistributeParallelAttr>(context);
+    // dp_attr.attachInterface<mlir::DataParallelAttr>(context);
+    llvm::outs() << dp_attr.getAbstractAttribute().getName()
+                 << " has mlir::DataParallelAttr interface: "
+                 << dp_attr.getAbstractAttribute().hasInterface(
+                        mlir::DistributeParallelAttr::getInterfaceID())
+                 << "\n";
     llvm::outs()
         << dp_attr.getAbstractAttribute().getName()
-        << " has DistributeParallelAttr: "
-        << dp_attr
-               .hasPromiseOrImplementsInterface<mlir::DistributeParallelAttr>()
+        << " has mlir::DataParallelAttr interface: "
+        << dp_attr.hasPromiseOrImplementsInterface<mlir::DataParallelAttr>()
         << "\n";
+
+    mlir::OpBuilder builder(&context);
+    auto loc = builder.getUnknownLoc();
+    auto module = getModule(builder);
+    module->dump();
 }
 
 int main() {

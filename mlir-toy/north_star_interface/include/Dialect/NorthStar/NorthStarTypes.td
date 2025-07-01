@@ -64,10 +64,34 @@ def NorthStar_TensorType : NorthStar_Type<"NSTensor","ns_tensor",[ShapedTypeInte
   let genVerifyDecl = 1;
 
   let extraClassDeclaration = [{
-    ::mlir::ShapedType cloneWith(::std::optional<::llvm::ArrayRef<int64_t>> shape, ::mlir::Type elementType) {
-        if (shape)
-          return mlir::north_star::NSTensorType::get(getContext(), *shape, elementType);
-        return mlir::north_star::NSTensorType::get(getContext(), getShape(), elementType);
-      }
+     using ::mlir::ShapedType::Trait<NSTensorType>::getElementTypeBitWidth;
+    using ::mlir::ShapedType::Trait<NSTensorType>::getRank;
+    using ::mlir::ShapedType::Trait<NSTensorType>::getNumElements;
+    using ::mlir::ShapedType::Trait<NSTensorType>::isDynamicDim;
+    using ::mlir::ShapedType::Trait<NSTensorType>::hasStaticShape;
+    using ::mlir::ShapedType::Trait<NSTensorType>::getNumDynamicDims;
+    using ::mlir::ShapedType::Trait<NSTensorType>::getDimSize;
+    using ::mlir::ShapedType::Trait<NSTensorType>::getDynamicDimIndex;
+
+    ::mlir::ShapedType cloneWith(::std::optional<::llvm::ArrayRef<int64_t>> shape, ::mlir::Type type){
+        if(shape)
+          return mlir::north_star::NSTensorType::get(getContext(), *shape, type);
+        return mlir::north_star::NSTensorType::get(getContext(), getShape(), type);
+    }
+    NSTensorType clone(::mlir::ArrayRef<int64_t> shape,int64_t device_id) const {
+      return NSTensorType::get(getContext(), shape, getElementType(),device_id);
+    }
+    NSTensorType clone(::mlir::ArrayRef<int64_t> shape, ::mlir::Type elementType) const {
+      return NSTensorType::get(getContext(), shape, elementType,getDeviceId());
+    }
+    NSTensorType clone(::mlir::ArrayRef<int64_t> shape) const {
+      return NSTensorType::get(getContext(), shape, getElementType(),getDeviceId());
+    }
+    NSTensorType clone(::mlir::Type elementType) const {
+      return NSTensorType::get(getContext(), getShape(), elementType,getDeviceId());
+    }
+    NSTensorType clone() const {
+      return NSTensorType::get(getContext(), getShape(), getElementType(),getDeviceId());
+    }
   }];
 }

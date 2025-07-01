@@ -8,3 +8,5 @@ def AnyNSTensor : Type<And<[CPred<"::mlir::isa<::mlir::north_star::NSTensorType>
 
 def AnyBuffer : Type<And<[CPred<"::mlir::isa<::mlir::north_star::BufferType>($_self)">,
                           CPred<"::mlir::cast<::mlir::north_star::BufferType>($_self).getDevices().size() > 0">]>>;
+
+def NSTensorOrBuffer : AnyTypeOf<[AnyNSTensor, AnyBuffer]>;
